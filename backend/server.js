@@ -9,7 +9,7 @@ const app = express();
 // --- 1. MIDDLEWARE ---
 // Cors must come before routes to allow the frontend to connect
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: ["https://devhub-portfolio-nine.vercel.app", "http://localhost:3000"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
