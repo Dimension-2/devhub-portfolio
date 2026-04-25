@@ -19,7 +19,7 @@ export default function Contact() {
     setLoading(true);
     try {
       // Added full localhost URL
-      await axios.post("http://localhost:5000/api/inquiry", form);
+      await axios.post("https://devhub-portfolio-gtu4.vercel.app/api/inquiry", form);
       setStatus("Transmission_Successful.");
       setForm({ name: "", email: "", message: "", type: "Web System" });
     } catch (err) {

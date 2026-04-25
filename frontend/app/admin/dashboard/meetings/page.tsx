@@ -19,7 +19,7 @@ export default function MeetingsPage() {
   // --- FETCH MEETINGS ---
   const fetchMeetings = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/meetings");
+      const res = await axios.get("https://devhub-portfolio-gtu4.vercel.app/api/meetings");
       setMeetings(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Fetch_Meetings_Error:", err);
@@ -37,7 +37,7 @@ export default function MeetingsPage() {
     if (!window.confirm("PROTOCOL_CONFIRMATION: Purge this meeting record from the archive?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/meetings/${id}`);
+      await axios.delete(`https://devhub-portfolio-gtu4.vercel.app/api/meetings/${id}`);
       setMeetings((prev) => prev.filter((m: any) => m._id !== id));
     } catch (err) {
       console.error("Purge_Error:", err);

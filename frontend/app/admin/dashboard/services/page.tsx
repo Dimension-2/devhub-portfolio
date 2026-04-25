@@ -24,7 +24,7 @@ export default function AdminServices() {
 
   const fetchServices = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/services");
+      const res = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/services");
       if (!res.ok) return;
       const data = await res.json();
       setServices(data);
@@ -37,7 +37,7 @@ export default function AdminServices() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/services", {
+      const res = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/services", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function AdminServices() {
   const handleDelete = async (id: string) => {
     if (confirm("Confirm protocol: Permanent deletion?")) {
       try {
-        const res = await fetch(`http://localhost:5000/api/services/${id}`, {
+        const res = await fetch(`https://devhub-portfolio-gtu4.vercel.app/api/services/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: localStorage.getItem("adminToken") || "",

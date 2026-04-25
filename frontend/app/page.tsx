@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/services");
+        const res = await axios.get("https://devhub-portfolio-gtu4.vercel.app/api/services");
         setServices(res.data.length > 0 ? res.data : DEFAULT_SERVICES);
       } catch (error) {
         setServices(DEFAULT_SERVICES);

@@ -201,7 +201,7 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/posts")
+    fetch("https://devhub-portfolio-gtu4.vercel.app/api/posts")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);

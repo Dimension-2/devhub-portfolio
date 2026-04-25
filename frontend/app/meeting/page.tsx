@@ -91,7 +91,7 @@ export default function BookMeeting() {
     setStatus("loading");
 
     try {
-      await axios.post("http://localhost:5000/api/meetings", formData);
+      await axios.post("https://devhub-portfolio-gtu4.vercel.app/api/meetings", formData);
       setStatus("success");
       setFormData({
         fullName: "",

@@ -34,7 +34,7 @@ export default function AdminPosts() {
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/posts");
+      const res = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/posts");
       const data = await res.json();
       setPosts(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -47,7 +47,7 @@ export default function AdminPosts() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/posts", {
+      const res = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -67,7 +67,7 @@ export default function AdminPosts() {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this post?")) return;
-    await fetch(`http://localhost:5000/api/posts/${id}`, { method: "DELETE" });
+    await fetch(`https://devhub-portfolio-gtu4.vercel.app/api/posts/${id}`, { method: "DELETE" });
     fetchPosts();
   };
 

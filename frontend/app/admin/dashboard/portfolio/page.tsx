@@ -28,7 +28,7 @@ export default function AdminWork() {
 
   const fetchPortfolio = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/portfolio");
+      const res = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/portfolio");
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
       const data = await res.json();
       setWorkEntries(data);
@@ -42,7 +42,7 @@ export default function AdminWork() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/portfolio", {
+      const res = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/portfolio", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -63,7 +63,7 @@ export default function AdminWork() {
   const handleDelete = async (id: string) => {
     if (!confirm("Delete?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/portfolio/${id}`, {
+      const res = await fetch(`https://devhub-portfolio-gtu4.vercel.app/api/portfolio/${id}`, {
         method: "DELETE",
       });
       if (res.ok) fetchPortfolio();

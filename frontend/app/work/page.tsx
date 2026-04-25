@@ -111,7 +111,7 @@ export default function WorkPage() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/portfolio");
+        const response = await fetch("https://devhub-portfolio-gtu4.vercel.app/api/portfolio");
         if (!response.ok)
           throw new Error(`Server responded with ${response.status}`);
         const data = await response.json();

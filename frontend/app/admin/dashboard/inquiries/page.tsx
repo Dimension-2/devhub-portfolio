@@ -10,7 +10,7 @@ export default function AdminInquiries() {
   // --- FETCH INQUIRIES ---
   const fetchInquiries = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/inquiries");
+      const res = await axios.get("https://devhub-portfolio-gtu4.vercel.app/api/inquiries");
       setInquiries(res.data);
     } catch (err) {
       console.error("Fetch_Inquiry_Error:", err);
@@ -27,7 +27,7 @@ export default function AdminInquiries() {
     if (!window.confirm("Confirm protocol: Permanent deletion?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/inquiries/${id}`);
+      await axios.delete(`https://devhub-portfolio-gtu4.vercel.app/api/inquiries/${id}`);
       setInquiries((prev) => prev.filter((iq: any) => iq._id !== id));
     } catch (err) {
       console.error("Delete_Error:", err);

@@ -139,7 +139,7 @@ router.delete(['/portfolio/:id', '/work/:id', '/projects/:id'], async (req, res)
 // --- 6. MEETINGS & INQUIRIES ---
 
 // POST: Create a new inquiry (THIS WAS MISSING)
-// Matches: http://localhost:5000/api/inquiry
+// Matches: https://devhub-portfolio-gtu4.vercel.app/api/inquiry
 router.post('/inquiry', async (req, res) => {
     try {
         const { name, email, message, projectType } = req.body;
@@ -159,7 +159,7 @@ router.post('/inquiry', async (req, res) => {
 });
 
 // GET: Fetch all inquiries for Admin Dashboard
-// Matches: http://localhost:5000/api/inquiries
+// Matches: https://devhub-portfolio-gtu4.vercel.app/api/inquiries
 router.get('/inquiries', async (req, res) => {
     try {
         const inquiries = await Inquiry.find().sort({ createdAt: -1 });
@@ -170,7 +170,7 @@ router.get('/inquiries', async (req, res) => {
 });
 
 // DELETE: Remove an inquiry by ID
-// Matches: http://localhost:5000/api/inquiries/:id
+// Matches: https://devhub-portfolio-gtu4.vercel.app/api/inquiries/:id
 router.delete('/inquiries/:id', async (req, res) => {
     try {
         const result = await Inquiry.findByIdAndDelete(req.params.id);

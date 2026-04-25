@@ -143,7 +143,7 @@ export default function ServicesPage() {
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/services")
+    fetch("https://devhub-portfolio-gtu4.vercel.app/api/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
