@@ -24,17 +24,27 @@ router.get('/dashboard-stats', async (req, res) => {
 });
 
 // --- 2. AUTHENTICATION (Bypassed) ---
+// --- 2. AUTHENTICATION (TOTAL BYPASS) ---
 router.post('/admin/login', async (req, res) => {
     try {
-        const { email } = req.body;
-        const admin = await Admin.findOne({ email: email.toLowerCase().trim() });
-        // Returns a dummy token just to stop frontend from crashing
-        res.json({ success: true, token: "bypassed_token", message: "Access Granted" });
+        const { email, password } = req.body;
+
+        // DO NOT ask the database for Admin.findOne
+        // Just check the hardcoded strings
+        if (email.toLowerCase() === 'admin@test.com' && password === '123') {
+            return res.json({
+                success: true,
+                token: "bypassed_token_9921",
+                message: "Access Granted"
+            });
+        } else {
+            return res.status(401).json({ success: false, message: "Invalid Credentials" });
+        }
     } catch (err) {
+        // This will now only run if your code has a syntax error
         res.status(500).json({ success: false, message: "System Error" });
     }
 });
-
 // --- 3. SERVICE MANAGEMENT ---
 router.get('/services', async (req, res) => {
     try {
